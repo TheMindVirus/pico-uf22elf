@@ -17,6 +17,59 @@ typedef unsigned int uint;
 //https://github.com/raspberrypi/pico-sdk/blob/master/tools/elf2uf2/main.cpp
 //https://github.com/microsoft/uf2/tree/master/utils
 
+int usage();
+int uf22elf(FILE* in, FILE* out);
+
+int main(int argc, char **argv)
+{
+    int arg = 1;
+    if (arg < argc && !strcmp(argv[arg], "-v")) { verbose = true; ++arg; }
+    if (argc < arg + 2) { return usage(); }
+
+    const char* in_filename = argv[arg++];
+    FILE* in = fopen(in_filename, "rb");
+    if (!in)
+    {
+        fprintf(stderr, "Error: Can't open input file '%s'\n", in_filename);
+        return -1;
+    }
+
+    const char* out_filename = argv[arg++];
+    FILE* out = fopen(out_filename, "wb");
+    if (!out)
+    {
+        fprintf(stderr, "Error: Can't open output file '%s'\n", out_filename);
+        return -1;
+    }
+
+    int rc = uf22elf(in, out);
+    fclose(in);
+    fclose(out);
+    if (rc)
+    {
+        remove(out_filename);
+        if (error_msg[0]) { fprintf(stderr, "Error: %s\n", error_msg); }
+    }
+    return rc;
+}
+
+int usage()
+{
+    fprintf(stderr, "Usage: uf22elf (-v) <input UF2 file> <output ELF file>\n");
+    return -1;
+}
+
+int uf22elf(FILE* in, FILE* out)
+{
+    if (verbose) { fprintf(stderr, "Warning: Partially Implemented\n"); }
+
+    //fread();
+    //fwrite();
+
+    if (verbose) { printf("Info: Done!"); }
+    return 0;
+}
+/*
 struct address_range
 {
     enum type
@@ -64,12 +117,6 @@ struct page_fragment
     uint32_t page_offset;
     uint32_t bytes;
 };
-
-static int usage()
-{
-    fprintf(stderr, "Usage: uf22elf (-v) <input UF2 file> <output ELF file>\n");
-    return -1;
-}
 
 //This will have to be reversed into a uf2 read function
 static int read_and_check_uf2(FILE* in, elf32_header& eh_out)
@@ -343,42 +390,4 @@ int elf2uf2(FILE *in, FILE *out)
     }
     return 0;
 }
-
-int uf22elf(FILE* in, FILE* out)
-{
-    fprintf(stderr, "Not Implemented\n");
-    return -1;
-}
-
-int main(int argc, char **argv)
-{
-    int arg = 1;
-    if (arg < argc && !strcmp(argv[arg], "-v")) { verbose = true; ++arg; }
-    if (argc < arg + 2) { return usage(); }
-
-    const char* in_filename = argv[arg++];
-    FILE* in = fopen(in_filename, "rb");
-    if (!in)
-    {
-        fprintf(stderr, "Can't open input file '%s'\n", in_filename);
-        return -1;
-    }
-
-    const char* out_filename = argv[arg++];
-    FILE* out = fopen(out_filename, "wb");
-    if (!out)
-    {
-        fprintf(stderr, "Can't open output file '%s'\n", out_filename);
-        return -1;
-    }
-
-    int rc = uf22elf(in, out);
-    fclose(in);
-    fclose(out);
-    if (rc)
-    {
-        remove(out_filename);
-        if (error_msg[0]) { fprintf(stderr, "ERROR: %s\n", error_msg); }
-    }
-    return rc;
-}
+*/
