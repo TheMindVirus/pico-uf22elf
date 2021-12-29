@@ -18,7 +18,7 @@ WIP reverse codec of elf2uf2 back-converting uf2 files to compressed elf files f
 
 ![workspace](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace.png)
 
-#### Workspace in IDLE Python 3 and Debian WSL with HxD
+#### Workspace in IDLE Python 3 and Debian WSL with HxD and readelf
 
 ![workspace2](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace2.png)
 
