@@ -1,10 +1,6 @@
 # pico-uf22elf
 WIP reverse codec of elf2uf2 back-converting uf2 files to compressed elf files for memory usage analysis
 
-#### Current Workspace in Visual Studio Code
-
-![workspace](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace.png)
-
 #### Approach Notes for elf2uf2 and uf22elf
 
 ```
@@ -17,6 +13,10 @@ WIP reverse codec of elf2uf2 back-converting uf2 files to compressed elf files f
  * Read the UF2 and treat the entire contents as the .text GNU Section in the ELF
  * Optionally pick out strings and place them in the .data GNU Section in the ELF
 ```
+
+#### Workspace in Visual Studio Code
+
+![workspace](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace.png)
 
 #### Example Analysis of ELF files in 7zip
 
