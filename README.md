@@ -3,7 +3,7 @@ WIP reverse codec of elf2uf2 back-converting uf2 files to compressed elf files f
 
 #### Current Workspace in Visual Studio Code
 
-![workspace](https://github.com/TheMindVirus/uf22elf/blob/main/workspace.png)
+![workspace](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace.png)
 
 #### Approach Notes for elf2uf2 and uf22elf
 
