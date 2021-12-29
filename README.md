@@ -1,6 +1,23 @@
 # pico-uf22elf
 WIP reverse codec of elf2uf2 back-converting uf2 files to compressed elf files for memory usage analysis
 
+#### Current Workspace in Visual Studio Code
+
+![workspace](https://github.com/TheMindVirus/uf22elf/blob/main/workspace.png)
+
+#### Approach Notes for elf2uf2 and uf22elf
+
+```
+[elf2uf2]
+ * Read the ELF header and detect whether this is a RAM binary or a Flash binary (???)
+ * Check the Program Header Table (PH Table Entries) for their address ranges if it has any
+ * Do some manual platform specific error correction and bug fixing on the image
+ * Fail early if slight incompatibility detected, otherwise write the magic section to UF2
+[uf22elf]
+ * Read the UF2 and treat the entire contents as the .text GNU Section in the ELF
+ * Optionally pick out strings and place them in the .data GNU Section in the ELF
+```
+
 #### Example Analysis of ELF files in 7zip
 
 ![stat](https://github.com/TheMindVirus/pico-uf22elf/blob/main/stat.png)

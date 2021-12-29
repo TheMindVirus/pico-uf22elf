@@ -1,0 +1,8 @@
+[elf2uf2]
+ * Read the ELF header and detect whether this is a RAM binary or a Flash binary (???)
+ * Check the Program Header Table (PH Table Entries) for their address ranges if it has any
+ * Do some manual platform specific error correction and bug fixing on the image
+ * Fail early if slight incompatibility detected, otherwise write the magic section to UF2
+[uf22elf]
+ * Read the UF2 and treat the entire contents as the .text GNU Section in the ELF
+ * Optionally pick out strings and place them in the .data GNU Section in the ELF
