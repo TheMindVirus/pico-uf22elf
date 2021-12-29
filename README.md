@@ -14,13 +14,13 @@ WIP reverse codec of elf2uf2 back-converting uf2 files to compressed elf files f
  * Optionally pick out strings and place them in the .data GNU Section in the ELF
 ```
 
-#### Workspace in Visual Studio Code with Debian WSL
+#### Workspace in Visual Studio Code with Debian WSL and gcc
 
 ![workspace](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace.png)
 
-#### Workspace in IDLE Python 3 and Debian WSL with HxD and readelf
+#### Workspace in IDLE Python 3 with Debian WSL and readelf
 
-![workspace2](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace2.png)
+![workspace4](https://github.com/TheMindVirus/pico-uf22elf/blob/main/workspace4.png)
 
 #### Example Analysis of ELF files in 7zip
 
